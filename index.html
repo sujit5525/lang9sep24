@@ -1,0 +1,62 @@
+<html>
+<head>
+<title> Languages App </title>
+<style>
+*{font-size: 40px; font-family: Arial;}
+boby{background-color:lightyellow;}
+input[type=checkbox] {width:2%; height:0.75em;}
+</style>
+</head>
+<body>
+<center>
+<h1> Language App </h1>
+<form onsubmit="show()">
+<input type="text" id="name" placeholder="enter your name"/>
+</br></br>
+<input type="checkbox" id="python"/>Python
+<input type="checkbox" id="java"/>Java
+<input type="checkbox" id="js"/>JavaScript
+</br></br>
+<input type="submit"/>
+</form>
+<h2 id="msg"/>
+<script>
+function show()
+{
+event.preventDefault();
+let name = document.getElementById("name");
+let python =document.getElementById("python");
+let java =document.getElementById("java");
+let js =document.getElementById("js");
+let msg =document.getElementById("msg");
+
+let n = name.value;
+
+if(n.trim()==="")
+{
+alert("please enter name");
+msg.innerHTML="";
+name.focus();
+return;
+}
+
+if(!n.match("^[A-Za-z ]+$"))
+{
+alert("name shud contain only alphabets");
+msg.innerHTML="";
+name.focus();
+return;
+}
+
+let lang="";
+if(python.checked)       lang = lang + "Python";
+if(java.checked)       lang = lang + "Java";
+if(js.checked)       lang = lang + "JavaScript";
+
+let a ="Name = "+ n +" language = " + lang;
+msg.innerHTML= a;
+}
+</script>
+</center>
+</body>
+</html>
